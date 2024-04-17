@@ -42,7 +42,8 @@ public class BackgroundWorkflowDispatcher : IWorkflowDispatcher
     /// <inheritdoc />
     public async Task<DispatchWorkflowResponse> DispatchAsync(DispatchWorkflowInstanceRequest request, DispatchWorkflowOptions? options = default, CancellationToken cancellationToken = default)
     {
-        var command = new DispatchWorkflowInstanceCommand(request.InstanceId){
+        var command = new DispatchWorkflowInstanceCommand(request.InstanceId)
+        {
             BookmarkId = request.BookmarkId,
             ActivityId = request.ActivityId,
             ActivityNodeId = request.ActivityNodeId,
@@ -50,7 +51,8 @@ public class BackgroundWorkflowDispatcher : IWorkflowDispatcher
             ActivityHash = request.ActivityHash,
             Input = request.Input,
             Properties = request.Properties,
-            CorrelationId = request.CorrelationId};
+            CorrelationId = request.CorrelationId
+        };
 
         await _commandSender.SendAsync(command, CommandStrategy.Background, cancellationToken);
         return DispatchWorkflowResponse.Success();
@@ -64,8 +66,9 @@ public class BackgroundWorkflowDispatcher : IWorkflowDispatcher
             CorrelationId = request.CorrelationId,
             WorkflowInstanceId = request.WorkflowInstanceId,
             ActivityInstanceId = request.ActivityInstanceId,
+            TenantId = request.TenantId,
             Input = request.Input,
-            Properties = request.Properties
+            Properties = request.Properties,
         };
         await _commandSender.SendAsync(command, CommandStrategy.Background, cancellationToken);
         return DispatchWorkflowResponse.Success();

@@ -19,9 +19,11 @@ public class DispatchTriggerWorkflowsRequest(string activityTypeName, object boo
     public string? WorkflowInstanceId { get; set; }
     public string? ActivityInstanceId { get; set; }
 
+    public string? TenantId { get; set; }
+
     /// <summary>Any input to send along.</summary>
     public IDictionary<string, object>? Input { get; set; }
-    
+
     /// <summary>
     /// Any properties to attach to the workflow instance.
     /// </summary>

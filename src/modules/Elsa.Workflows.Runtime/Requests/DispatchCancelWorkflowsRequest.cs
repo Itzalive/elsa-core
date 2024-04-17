@@ -9,4 +9,6 @@ public class DispatchCancelWorkflowsRequest
     /// The ID of the workflow instance to cancel.
     /// </summary>
     public string WorkflowInstanceId { get; set; } = default!;
+
+    public string? TenantId { get; set; }
 }

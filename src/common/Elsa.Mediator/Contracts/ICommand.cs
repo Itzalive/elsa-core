@@ -8,6 +8,7 @@ namespace Elsa.Mediator.Contracts;
 [PublicAPI]
 public interface ICommand
 {
+    public string? TenantId { get; }
 }
 
 /// <summary>

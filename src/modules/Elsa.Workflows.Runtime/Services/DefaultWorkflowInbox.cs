@@ -97,6 +97,7 @@ public class DefaultWorkflowInbox : IWorkflowInbox
     {
         var activityTypeName = message.ActivityTypeName;
         var correlationId = message.CorrelationId;
+        var tenantId = message.TenantId;
         var workflowInstanceId = message.WorkflowInstanceId;
         var activityInstanceId = message.ActivityInstanceId;
         var bookmarkPayload = message.BookmarkPayload;
@@ -133,6 +134,7 @@ public class DefaultWorkflowInbox : IWorkflowInbox
             CorrelationId = correlationId,
             WorkflowInstanceId = workflowInstanceId,
             ActivityInstanceId = activityInstanceId,
+            TenantId = tenantId,
             Input = input
         }, cancellationToken: cancellationToken);
 

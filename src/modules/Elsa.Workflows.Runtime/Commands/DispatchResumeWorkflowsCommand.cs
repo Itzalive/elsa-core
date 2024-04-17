@@ -25,9 +25,11 @@ public class DispatchResumeWorkflowsCommand(string activityTypeName, object book
     /// <summary>The ID of the activity instance to dispatch.</summary>
     public string? ActivityInstanceId { get; set; }
 
+    public string? TenantId { get; set; }
+
     /// <summary>The input to pass to the activity.</summary>
     public IDictionary<string, object>? Input { get; set; }
-    
+
     /// <summary>
     /// Any properties to attach to the workflow instance.
     /// </summary>

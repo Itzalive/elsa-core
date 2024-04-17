@@ -27,4 +27,6 @@ public class CancelWorkflowsCommand : ICommand
     /// Gets or sets the request.
     /// </summary>
     public DispatchCancelWorkflowsRequest Request { get; set; } = default!;
+
+    public string? TenantId => Request.TenantId;
 }

@@ -20,7 +20,10 @@ public class AlterationPlanCompletedHandler(IWorkflowDispatcher workflowDispatch
         // Trigger any workflow instances that are waiting for the plan to complete.
         var planId = notification.Plan.Id;
         var bookmarkPayload = new AlterationPlanCompletedPayload(planId);
-        var triggerRequest = new DispatchTriggerWorkflowsRequest(ActivityTypeNameHelper.GenerateTypeName<Activities.AlterationPlanCompleted>(), bookmarkPayload);
+        var triggerRequest = new DispatchTriggerWorkflowsRequest(ActivityTypeNameHelper.GenerateTypeName<Activities.AlterationPlanCompleted>(), bookmarkPayload)
+        {
+            TenantId = notification.Plan.TenantId
+        };
         await workflowDispatcher.DispatchAsync(triggerRequest, cancellationToken);
     }
 }

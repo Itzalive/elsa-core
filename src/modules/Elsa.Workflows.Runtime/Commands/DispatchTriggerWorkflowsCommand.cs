@@ -15,4 +15,5 @@ public class DispatchTriggerWorkflowsCommand(string activityTypeName, object boo
     public string? ActivityInstanceId { get; set; }
     public IDictionary<string, object>? Input { get; set; }
     public IDictionary<string, object>? Properties { get; set; }
+    public string? TenantId { get; set; }
 }
