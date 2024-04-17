@@ -1,6 +1,7 @@
 using Elsa.EntityFrameworkCore.Common;
 using Elsa.Features.Attributes;
 using Elsa.Features.Services;
+using Elsa.Tenants.Features;
 using Elsa.Workflows.Management.Entities;
 using Elsa.Workflows.Management.Features;
 using JetBrains.Annotations;
@@ -14,6 +15,7 @@ namespace Elsa.EntityFrameworkCore.Modules.Management;
 [DependsOn(typeof(WorkflowManagementFeature))]
 [DependsOn(typeof(WorkflowInstancesFeature))]
 [DependsOn(typeof(WorkflowDefinitionsFeature))]
+[DependsOn(typeof(TenantsFeature))]
 [PublicAPI]
 public class WorkflowManagementPersistenceFeature : PersistenceFeatureBase<WorkflowManagementPersistenceFeature, ManagementElsaDbContext>
 {
